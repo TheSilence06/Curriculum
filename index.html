@@ -4,350 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curriculum Vitae - Simone Sernesi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: #f3f4f6;
-            color: #1f2937;
-            line-height: 1.5;
-            padding: 20px;
-        }
-
-        .action-bar {
-            max-width: 850px;
-            margin: 0 auto 20px auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .btn-print {
-            background-color: #2563eb;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: 600;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-print:hover {
-            background-color: #1d4ed8;
-        }
-
-        .cv-container {
-            max-width: 850px;
-            min-height: 1100px;
-            margin: 0 auto;
-            background: white;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        /* Colonna Sinistra (Sidebar) */
-        .sidebar {
-            width: 32%;
-            background-color: #0f172a;
-            color: #f8fafc;
-            padding: 35px 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .sidebar h1 {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            color: #ffffff;
-            line-height: 1.2;
-        }
-
-        .sidebar .subtitle {
-            color: #38bdf8;
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 6px;
-        }
-
-        .sidebar-section-title {
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #94a3b8;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 6px;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .contact-item {
-            font-size: 13px;
-            margin-bottom: 10px;
-            word-break: break-word;
-            color: #cbd5e1;
-        }
-
-        .contact-item strong {
-            color: #ffffff;
-            display: block;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
-        }
-
-        .skill-tag {
-            display: inline-block;
-            background-color: #1e293b;
-            color: #e2e8f0;
-            border: 1px solid #334155;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            margin-right: 4px;
-            margin-bottom: 6px;
-        }
-
-        .lang-list, .hobby-list {
-            list-style: none;
-            font-size: 13px;
-            color: #cbd5e1;
-        }
-
-        .lang-list li, .hobby-list li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 14px;
-        }
-
-        .lang-list li::before, .hobby-list li::before {
-            content: "•";
-            color: #38bdf8;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Colonna Destra (Main Content) */
-        .main-content {
-            width: 68%;
-            padding: 35px 35px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            background-color: #ffffff;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 6px;
-            margin-bottom: 14px;
-        }
-
-        .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: #0f172a;
-            letter-spacing: 0.5px;
-        }
-
-        .profile-text {
-            font-size: 13.5px;
-            color: #334155;
-            line-height: 1.6;
-        }
-
-        .timeline-item {
-            margin-bottom: 18px;
-        }
-
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 4px;
-        }
-
-        .job-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #0f172a;
-        }
-
-        .company-name {
-            font-size: 13.5px;
-            font-weight: 500;
-            color: #2563eb;
-        }
-
-        .date-badge {
-            font-size: 12px;
-            color: #64748b;
-            font-weight: 500;
-            background-color: #f1f5f9;
-            padding: 2px 8px;
-            border-radius: 12px;
-        }
-
-        .timeline-body {
-            font-size: 13px;
-            color: #475569;
-            line-height: 1.5;
-        }
-
-        .timeline-body ul {
-            padding-left: 18px;
-            margin-top: 6px;
-        }
-
-        .timeline-body li {
-            margin-bottom: 4px;
-        }
-
-        .soft-skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .soft-skill-card {
-            background-color: #f8fafc;
-            border-left: 3px solid #38bdf8;
-            padding: 8px 12px;
-            border-radius: 0 6px 6px 0;
-        }
-
-        .soft-skill-card strong {
-            display: block;
-            font-size: 13px;
-            color: #0f172a;
-        }
-
-        .soft-skill-card span {
-            font-size: 12px;
-            color: #64748b;
-        }
-
-        .privacy-notice {
-            margin-top: auto;
-            font-size: 10px;
-            color: #94a3b8;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 12px;
-            line-height: 1.4;
-        }
-
-        /* Stili per la stampa / salvataggio PDF */
+        /* Regole minime per la stampa in formato A4 */
         @media print {
-            body {
-                background-color: white;
-                padding: 0;
-            }
-
-            .action-bar {
-                display: none;
-            }
-
-            .cv-container {
-                box-shadow: none;
-                max-width: 100%;
-                width: 100%;
-                border-radius: 0;
-            }
-
-            @page {
-                size: A4;
-                margin: 0;
-            }
+            .no-print { display: none !important; }
+            body { padding: 0 !important; background: white !important; }
+            .cv-shadow { box-shadow: none !important; border-radius: 0 !important; }
+            @page { size: A4; margin: 0; }
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-100 text-slate-800 font-sans p-4 md:p-8 antialiased">
 
-    <div class="action-bar">
-        <span style="font-size: 14px; color: #475569;">Anteprima Curriculum Vitae</span>
-        <button class="btn-print" onclick="window.print()">
+    <div class="no-print max-w-[850px] mx-auto mb-5 flex justify-between items-center">
+        <span class="text-sm text-slate-600 font-medium">Anteprima Curriculum Vitae (Tailwind CSS)</span>
+        <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm py-2.5 px-5 rounded-lg transition-colors duration-200 inline-flex items-center gap-2 shadow-sm">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
             Salva come PDF / Stampa
         </button>
     </div>
 
-    <div class="cv-container">
-        <!-- Sidebar Sinistra -->
-        <aside class="sidebar">
+    <div class="cv-shadow max-w-[850px] min-h-[1100px] mx-auto bg-white shadow-xl rounded-xl overflow-hidden flex flex-col md:flex-row">
+        
+        <aside class="w-full md:w-[32%] bg-slate-900 text-slate-100 p-8 flex flex-col gap-6">
             <div>
-                <h1>Simone Sernesi</h1>
-                <div class="subtitle">Profilo Tecnico / Junior Developer</div>
+                <h1 class="text-2xl font-bold text-white tracking-tight leading-tight">Simone Sernesi</h1>
+                <div class="text-sky-400 text-xs font-semibold uppercase tracking-wider mt-1.5">Profilo Tecnico / Junior Developer</div>
             </div>
 
-            <section>
-                <h2 class="sidebar-section-title">Contatti</h2>
-                <div class="contact-item">
-                    <strong>Telefono</strong>
+            <section class="space-y-3">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-700 pb-1.5">Contatti</h2>
+                <div class="text-xs text-slate-300">
+                    <strong class="block text-[10px] uppercase tracking-wider text-slate-100 mb-0.5">Telefono</strong>
                     +39 348 645 9121
                 </div>
-                <div class="contact-item">
-                    <strong>E-mail</strong>
+                <div class="text-xs text-slate-300 break-all">
+                    <strong class="block text-[10px] uppercase tracking-wider text-slate-100 mb-0.5">E-mail</strong>
                     sernesi.simone@gmail.com
                 </div>
-                <div class="contact-item">
-                    <strong>Indirizzo</strong>
+                <div class="text-xs text-slate-300">
+                    <strong class="block text-[10px] uppercase tracking-wider text-slate-100 mb-0.5">Indirizzo</strong>
                     Via Francesco Paolo Michetti 6<br>40100 Bologna (BO), Italia
                 </div>
-                <div class="contact-item">
-                    <strong>Data di nascita</strong>
+                <div class="text-xs text-slate-300">
+                    <strong class="block text-[10px] uppercase tracking-wider text-slate-100 mb-0.5">Data di nascita</strong>
                     19/07/2006
                 </div>
             </section>
 
-            <section>
-                <h2 class="sidebar-section-title">Competenze Tecniche</h2>
-                <div style="margin-bottom: 8px;">
-                    <div style="font-size: 11px; color: #94a3b8; margin-bottom: 4px;">LINGUAGGI</div>
-                    <span class="skill-tag">C++</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">JavaScript</span>
+            <section class="space-y-3">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-700 pb-1.5">Competenze Tecniche</h2>
+                <div>
+                    <div class="text-[10px] text-slate-400 mb-1 font-medium">LINGUAGGI</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="bg-slate-800 text-slate-200 border border-slate-700 text-xs px-2 py-0.5 rounded">C++</span>
+                        <span class="bg-slate-800 text-slate-200 border border-slate-700 text-xs px-2 py-0.5 rounded">Java</span>
+                        <span class="bg-slate-800 text-slate-200 border border-slate-700 text-xs px-2 py-0.5 rounded">JavaScript</span>
+                    </div>
                 </div>
                 <div>
-                    <div style="font-size: 11px; color: #94a3b8; margin-bottom: 4px;">SVILUPPO WEB & LOGICA</div>
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">Algoritmi</span>
-                    <span class="skill-tag">Strutture Dati</span>
+                    <div class="text-[10px] text-slate-400 mb-1 font-medium">SVILUPPO WEB & LOGICA</div>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="bg-slate-800 text-slate-200 border border-slate-700 text-xs px-2 py-0.5 rounded">HTML5</span>
+                        <span class="bg-slate-800 text-slate-200 border border-slate-700 text-xs px-2 py-0.5 rounded">Algoritmi</span>
+                        <span class="bg-slate-800 text-slate-200 border border-slate-700 text-xs px-2 py-0.5 rounded">Strutture Dati</span>
+                    </div>
                 </div>
             </section>
 
-            <section>
-                <h2 class="sidebar-section-title">Lingue</h2>
-                <ul class="lang-list">
-                    <li><strong>Italiano:</strong> Madrelingua</li>
-                    <li><strong>Inglese:</strong> Livello B2 (Buona autonomia e comprensione di testi tecnici)</li>
+            <section class="space-y-3">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-700 pb-1.5">Lingue</h2>
+                <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside marker:text-sky-400">
+                    <li><strong class="text-white">Italiano:</strong> Madrelingua</li>
+                    <li><strong class="text-white">Inglese:</strong> Livello B2 (Buona autonomia e comprensione)</li>
                 </ul>
             </section>
 
-            <section>
-                <h2 class="sidebar-section-title">Interessi & Hobby</h2>
-                <ul class="hobby-list">
+            <section class="space-y-3">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-700 pb-1.5">Interessi & Hobby</h2>
+                <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside marker:text-sky-400">
                     <li>Sviluppo Software & Game Logic</li>
                     <li>Statistica e Psicologia (Autodidatta)</li>
                     <li>Giochi di Strategia e da Tavolo</li>
@@ -355,90 +103,82 @@
             </section>
         </aside>
 
-        <!-- Contenuto Principale Destra -->
-        <main class="main-content">
+        <main class="w-full md:w-[68%] p-8 flex flex-col gap-6 bg-white">
+            
             <!-- Profilo Professionale -->
             <section>
-                <div class="section-header">
-                    <h2 class="section-title">Profilo Professionale</h2>
+                <div class="border-b-2 border-slate-200 pb-1.5 mb-3">
+                    <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">Profilo Professionale</h2>
                 </div>
-                <p class="profile-text">
-                    Profilo junior con solida preparazione quadriennale di scuola superiore ad indirizzo informatico ed esperienza pratica maturata in contesto aziendale/industriale. Caratterizzato da elevata capacità di apprendimento rapido, forte predisposizione al lavoro di squadra e orientamento al raggiungimento degli obiettivi. Attualmente libero da impegni scolastici e con <strong>disponibilità immediata a tempo pieno</strong> per essere inserito in contesti lavorativi stimolanti.
+                <p class="text-xs md:text-sm text-slate-700 leading-relaxed">
+                    Profilo junior con solida preparazione quadriennale di scuola superiore ad indirizzo informatico ed esperienza pratica maturata in contesto aziendale/industriale. Caratterizzato da elevata capacità di apprendimento rapido, forte predisposizione al lavoro di squadra e orientamento al raggiungimento degli obiettivi. Attualmente libero da impegni scolastici e con <strong class="text-slate-900 font-semibold">disponibilità immediata a tempo pieno</strong> per essere inserito in contesti lavorativi stimolanti.
                 </p>
             </section>
 
-            <!-- Formazione -->
             <section>
-                <div class="section-header">
-                    <h2 class="section-title">Formazione e Istruzione</h2>
+                <div class="border-b-2 border-slate-200 pb-1.5 mb-3">
+                    <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">Formazione e Istruzione</h2>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
+                <div class="space-y-2">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
                         <div>
-                            <div class="job-title">Percorso di Studi ad Indirizzo Informatica</div>
-                            <div class="company-name">IIS O. Belluzzi - Fioravanti — Bologna (BO)</div>
+                            <div class="text-sm font-semibold text-slate-900">Percorso di Studi ad Indirizzo Informatica</div>
+                            <div class="text-xs font-medium text-blue-600">IIS O. Belluzzi - Fioravanti — Bologna (BO)</div>
                         </div>
-                        <span class="date-badge">Set 2020 – Giu 2024</span>
+                        <span class="text-[11px] text-slate-500 font-medium bg-slate-100 px-2 py-0.5 rounded-full self-start sm:self-auto">Set 2020 – Giu 2024</span>
                     </div>
-                    <div class="timeline-body">
-                        <ul>
-                            <li>Completati con successo i primi 4 anni di corso ad indirizzo tecnico-informatico.</li>
-                            <li>Acquisite competenze pratiche e teoriche su programmazione ad oggetti, logica algoritmica e strutturazione di sistemi web.</li>
-                        </ul>
-                    </div>
+                    <ul class="text-xs text-slate-600 list-disc list-inside space-y-1">
+                        <li>Completati con successo i primi 4 anni di corso ad indirizzo tecnico-informatico.</li>
+                        <li>Acquisite competenze pratiche e teoriche su programmazione ad oggetti, logica algoritmica e strutturazione di sistemi web.</li>
+                    </ul>
                 </div>
             </section>
 
-            <!-- Esperienza / PCTO -->
             <section>
-                <div class="section-header">
-                    <h2 class="section-title">Esperienza Pratica / PCTO</h2>
+                <div class="border-b-2 border-slate-200 pb-1.5 mb-3">
+                    <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">Esperienza Pratica / PCTO</h2>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-header">
+                <div class="space-y-2">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
                         <div>
-                            <div class="job-title">Tirocinio Formativo / PCTO</div>
-                            <div class="company-name">Fondazione MAST — Bologna (BO)</div>
+                            <div class="text-sm font-semibold text-slate-900">Tirocinio Formativo / PCTO</div>
+                            <div class="text-xs font-medium text-blue-600">Fondazione MAST — Bologna (BO)</div>
                         </div>
-                        <span class="date-badge">Mar 2024 – Giu 2024</span>
+                        <span class="text-[11px] text-slate-500 font-medium bg-slate-100 px-2 py-0.5 rounded-full self-start sm:self-auto">Mar 2024 – Giu 2024</span>
                     </div>
-                    <div class="timeline-body">
-                        <ul>
-                            <li>Inserimento in contesto aziendale e industriale focalizzato su innovazione e tecnologia.</li>
-                            <li>Collaborazione attiva con il team su progetti operativi, rispettando scadenze e metodologie di gruppo.</li>
-                            <li>Sviluppo di capacità di problem solving e adattamento a dinamiche lavorative reali.</li>
-                        </ul>
-                    </div>
+                    <ul class="text-xs text-slate-600 list-disc list-inside space-y-1">
+                        <li>Inserimento in contesto aziendale e industriale focalizzato su innovazione e tecnologia.</li>
+                        <li>Collaborazione attiva con il team su progetti operativi, rispettando scadenze e metodologie di gruppo.</li>
+                        <li>Sviluppo di capacità di problem solving e adattamento a dinamiche lavorative reali.</li>
+                    </ul>
                 </div>
             </section>
 
-            <!-- Soft Skills -->
             <section>
-                <div class="section-header">
-                    <h2 class="section-title">Competenze Trasversali</h2>
+                <div class="border-b-2 border-slate-200 pb-1.5 mb-3">
+                    <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">Competenze Trasversali</h2>
                 </div>
-                <div class="soft-skills-grid">
-                    <div class="soft-skill-card">
-                        <strong>Apprendimento Rapido</strong>
-                        <span>Attitudine all'assimilazione rapida di nuovi linguaggi e strumenti.</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    <div class="bg-slate-50 border-l-4 border-sky-400 p-2.5 rounded-r-lg">
+                        <strong class="block text-xs font-bold text-slate-900">Apprendimento Rapido</strong>
+                        <span class="text-[11px] text-slate-500">Attitudine all'assimilazione rapida di nuovi linguaggi e strumenti.</span>
                     </div>
-                    <div class="soft-skill-card">
-                        <strong>Lavoro di Squadra</strong>
-                        <span>Propensione alla collaborazione e confronto costruttivo.</span>
+                    <div class="bg-slate-50 border-l-4 border-sky-400 p-2.5 rounded-r-lg">
+                        <strong class="block text-xs font-bold text-slate-900">Lavoro di Squadra</strong>
+                        <span class="text-[11px] text-slate-500">Propensione alla collaborazione e confronto costruttivo.</span>
                     </div>
-                    <div class="soft-skill-card">
-                        <strong>Ascolto e Comunicazione</strong>
-                        <span>Massima ricettività ai feedback e chiarezza nell'interazione.</span>
+                    <div class="bg-slate-50 border-l-4 border-sky-400 p-2.5 rounded-r-lg">
+                        <strong class="block text-xs font-bold text-slate-900">Ascolto e Comunicazione</strong>
+                        <span class="text-[11px] text-slate-500">Massima ricettività ai feedback e chiarezza nell'interazione.</span>
                     </div>
-                    <div class="soft-skill-card">
-                        <strong>Determinazione</strong>
-                        <span>Approccio proattivo e orientato ai risultati nei compiti assegnati.</span>
+                    <div class="bg-slate-50 border-l-4 border-sky-400 p-2.5 rounded-r-lg">
+                        <strong class="block text-xs font-bold text-slate-900">Determinazione</strong>
+                        <span class="text-[11px] text-slate-500">Approccio proattivo e orientato ai risultati nei compiti assegnati.</span>
                     </div>
                 </div>
             </section>
 
-            <!-- Clausola Privacy -->
-            <div class="privacy-notice">
+            <div class="mt-auto pt-3 border-t border-slate-100 text-[10px] text-slate-400 leading-relaxed">
                 Autorizzo il trattamento dei miei dati personali ai sensi del Decreto Legislativo 30 giugno 2003, n. 196 e del GDPR (Regolamento UE 2016/679).
             </div>
         </main>
