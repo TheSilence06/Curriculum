@@ -29,22 +29,31 @@
 </head>
 <body class="bg-slate-100 text-slate-800 font-sans p-4 md:p-8 antialiased">
 
+    <!-- Barra superiore con pulsante Stampa -->
     <div class="no-print max-w-[850px] mx-auto mb-5 flex justify-between items-center">
-        <span class="text-sm text-slate-600 font-medium">Anteprima Curriculum Vitae (Tailwind CSS)</span>
+        <span class="text-sm text-slate-600 font-medium">Anteprima Curriculum Vitae</span>
         <button onclick="window.print()" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm py-2.5 px-5 rounded-lg transition-colors duration-200 inline-flex items-center gap-2 shadow-sm">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
             Salva come PDF / Stampa
         </button>
     </div>
 
+    <!-- Contenitore Principale CV -->
     <div class="cv-shadow max-w-[850px] min-h-[1100px] mx-auto bg-white shadow-xl rounded-xl overflow-hidden flex flex-col md:flex-row">
         
+        <!-- SIDEBAR SINISTRA -->
         <aside class="w-full md:w-[32%] bg-slate-900 text-slate-100 p-8 flex flex-col gap-6">
-            <div>
-                <h1 class="text-2xl font-bold text-white tracking-tight leading-tight">Simone Sernesi</h1>
-                <div class="text-sky-400 text-xs font-semibold uppercase tracking-wider mt-1.5">Profilo Tecnico / Junior Developer</div>
+            
+            <!-- Foto Profilo + Intestazione Nome -->
+            <div class="flex flex-col items-start gap-4">
+                <img src="FotoCurriculum.jpg" alt="Foto di Simone Sernesi" class="w-28 h-28 rounded-full object-cover border-2 border-sky-400 shadow-md">
+                <div>
+                    <h1 class="text-2xl font-bold text-white tracking-tight leading-tight">Simone Sernesi</h1>
+                    <div class="text-sky-400 text-xs font-semibold uppercase tracking-wider mt-1.5">Profilo Tecnico / Junior Developer</div>
+                </div>
             </div>
 
+            <!-- Contatti -->
             <section class="space-y-3">
                 <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-700 pb-1.5">Contatti</h2>
                 <div class="text-xs text-slate-300">
@@ -57,16 +66,21 @@
                 </div>
                 <div class="text-xs text-slate-300">
                     <strong class="block text-[10px] uppercase tracking-wider text-slate-100 mb-0.5">Indirizzo</strong>
-                    Via Francesco Paolo Michetti 6<br>40100 Bologna (BO), Italia
+                    Via Francesco Paolo Michetti 6<br>40133 Bologna (BO), Italia
                 </div>
                 <div class="text-xs text-slate-300">
                     <strong class="block text-[10px] uppercase tracking-wider text-slate-100 mb-0.5">Data di nascita</strong>
                     19/07/2006
                 </div>
+                <div class="bg-slate-800 p-2.5 rounded border-l-2 border-sky-400 text-xs text-slate-200">
+                    <strong class="block text-[10px] uppercase tracking-wider text-sky-400 mb-0.5">Disponibilità</strong>
+                    Immediata a tempo pieno
+                </div>
             </section>
 
+            <!-- Competenze Tecniche -->
             <section class="space-y-3">
-                <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-700 pb-1.5">Competenze Tecniche</h2>
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-700 pb-1.5">Competenze IT</h2>
                 <div>
                     <div class="text-[10px] text-slate-400 mb-1 font-medium">LINGUAGGI</div>
                     <div class="flex flex-wrap gap-1.5">
@@ -85,6 +99,7 @@
                 </div>
             </section>
 
+            <!-- Lingue -->
             <section class="space-y-3">
                 <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-700 pb-1.5">Lingue</h2>
                 <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside marker:text-sky-400">
@@ -93,6 +108,7 @@
                 </ul>
             </section>
 
+            <!-- Interessi -->
             <section class="space-y-3">
                 <h2 class="text-xs font-semibold uppercase tracking-widest text-slate-400 border-b border-slate-700 pb-1.5">Interessi & Hobby</h2>
                 <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside marker:text-sky-400">
@@ -103,6 +119,7 @@
             </section>
         </aside>
 
+        <!-- SEZIONE PRINCIPALE DESTRA -->
         <main class="w-full md:w-[68%] p-8 flex flex-col gap-6 bg-white">
             
             <!-- Profilo Professionale -->
@@ -110,11 +127,12 @@
                 <div class="border-b-2 border-slate-200 pb-1.5 mb-3">
                     <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">Profilo Professionale</h2>
                 </div>
-                <p class="text-xs md:text-sm text-slate-700 leading-relaxed">
+                <p class="text-xs md:text-sm text-slate-700 leading-relaxed bg-slate-50 border-l-4 border-blue-600 p-3 rounded-r-lg">
                     Profilo junior con solida preparazione quadriennale di scuola superiore ad indirizzo informatico ed esperienza pratica maturata in contesto aziendale/industriale. Caratterizzato da elevata capacità di apprendimento rapido, forte predisposizione al lavoro di squadra e orientamento al raggiungimento degli obiettivi. Attualmente libero da impegni scolastici e con <strong class="text-slate-900 font-semibold">disponibilità immediata a tempo pieno</strong> per essere inserito in contesti lavorativi stimolanti.
                 </p>
             </section>
 
+            <!-- Formazione -->
             <section>
                 <div class="border-b-2 border-slate-200 pb-1.5 mb-3">
                     <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">Formazione e Istruzione</h2>
@@ -127,13 +145,14 @@
                         </div>
                         <span class="text-[11px] text-slate-500 font-medium bg-slate-100 px-2 py-0.5 rounded-full self-start sm:self-auto">Set 2020 – Giu 2024</span>
                     </div>
-                    <ul class="text-xs text-slate-600 list-disc list-inside space-y-1">
+                    <ul class="text-xs text-slate-600 list-disc list-inside space-y-1 pl-1">
                         <li>Completati con successo i primi 4 anni di corso ad indirizzo tecnico-informatico.</li>
                         <li>Acquisite competenze pratiche e teoriche su programmazione ad oggetti, logica algoritmica e strutturazione di sistemi web.</li>
                     </ul>
                 </div>
             </section>
 
+            <!-- Esperienze lavorative / PCTO -->
             <section>
                 <div class="border-b-2 border-slate-200 pb-1.5 mb-3">
                     <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">Esperienza Pratica / PCTO</h2>
@@ -142,11 +161,11 @@
                     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1">
                         <div>
                             <div class="text-sm font-semibold text-slate-900">Tirocinio Formativo / PCTO</div>
-                            <div class="text-xs font-medium text-blue-600">Fondazione MAST — Bologna (BO)</div>
+                            <div class="text-xs font-medium text-blue-600">Fondazione MAST — Via Speranza 42, Bologna</div>
                         </div>
                         <span class="text-[11px] text-slate-500 font-medium bg-slate-100 px-2 py-0.5 rounded-full self-start sm:self-auto">Mar 2024 – Giu 2024</span>
                     </div>
-                    <ul class="text-xs text-slate-600 list-disc list-inside space-y-1">
+                    <ul class="text-xs text-slate-600 list-disc list-inside space-y-1 pl-1">
                         <li>Inserimento in contesto aziendale e industriale focalizzato su innovazione e tecnologia.</li>
                         <li>Collaborazione attiva con il team su progetti operativi, rispettando scadenze e metodologie di gruppo.</li>
                         <li>Sviluppo di capacità di problem solving e adattamento a dinamiche lavorative reali.</li>
@@ -154,6 +173,7 @@
                 </div>
             </section>
 
+            <!-- Competenze Trasversali -->
             <section>
                 <div class="border-b-2 border-slate-200 pb-1.5 mb-3">
                     <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">Competenze Trasversali</h2>
@@ -178,6 +198,7 @@
                 </div>
             </section>
 
+            <!-- Autorizzazione Privacy -->
             <div class="mt-auto pt-3 border-t border-slate-100 text-[10px] text-slate-400 leading-relaxed">
                 Autorizzo il trattamento dei miei dati personali ai sensi del Decreto Legislativo 30 giugno 2003, n. 196 e del GDPR (Regolamento UE 2016/679).
             </div>
