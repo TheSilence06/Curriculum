@@ -18,12 +18,31 @@
         }
     </script>
     <style>
-        /* Regole minime per la stampa in formato A4 */
+        /* 1. Forza la stampa dei colori, sfondi e immagini */
         @media print {
-            .no-print { display: none !important; }
-            body { padding: 0 !important; background: white !important; }
-            .cv-shadow { box-shadow: none !important; border-radius: 0 !important; }
-            @page { size: A4; margin: 0; }
+            body {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            }
+            
+            /* Nasconde il pulsante "Salva come PDF" durante la stampa */
+            .no-print {
+            display: none !important;
+            }
+
+            /* Imposta la pagina esatta A4 senza margini bianchi esterni aggiuntivi */
+            @page {
+            size: A4 portrait;
+            margin: 0;
+            }
+
+            /* Assicura che la card occupi l'intera pagina A4 */
+            .cv-shadow {
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            max-width: 100% !important;
+            min-height: 100vh !important;
+            }
         }
     </style>
 </head>
